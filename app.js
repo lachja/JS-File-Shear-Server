@@ -27,4 +27,4 @@ app.post('/single', async(req, res, next) => {
 
 })
 
-app.listen(3000, () => console.log('🚀 on port: 3000'))
+app.listen(3000, () => console.log('🚀 on port: 3000 | http://localhost:3000/'))
