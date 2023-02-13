@@ -21,11 +21,18 @@
 
     <h3>Single file upload</h3>
     <form action="/single" method="post" enctype="multipart/form-data">
-        <input type="file" name="mFile" id="filePicker" required>
+        <div class="input-group mb-3">
+            <input type="file" class="form-control" name="mFile" id="inputGroupFile" required>
+            <label class="input-group-text" for="inputGroupFile">Upload</label>
+        </div>
+    
         <input type="submit" value="upload" id="submitButton">
-    </form>
 
-    <button onclick="window.location.href='/ftp'">
+    </form>
+    
+
+
+    <button type="button" class="btn btn-light" onclick="window.location.href='/ftp'">
         Zur Ablage
     </button>
     
