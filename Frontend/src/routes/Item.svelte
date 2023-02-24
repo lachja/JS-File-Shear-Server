@@ -3,7 +3,7 @@
 
 export let fileName: string
 let dataType = getDataType()
-const url = "http://localhost:3000/"
+const url = "http://File-Shear-Backend:3000/"
 
 enum FileExtensions {
   PNG = ".png",

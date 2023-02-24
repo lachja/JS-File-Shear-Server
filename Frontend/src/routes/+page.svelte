@@ -4,7 +4,7 @@
 	import ItemUploadCard from "./ItemUploadCard.svelte";
 	import Loading from "./Loading.svelte";
 
-    const url = "http://localhost:3000/getFiles"
+    const url = "http://File-Shear-Backend:3000/getFiles"
 
     let fileNames: any[] = [];
 

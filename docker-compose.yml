@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  
+  frontend: 
+    build: ./Frontend/.
+    container_name: File-Shear-Frontend
+    network_mode: defaultNet
+    ports:
+      - "5173:5173"
+  
+  backend:
+    build: ./Backend/.
+    container_name: File-Shear-Backend
+    network_mode: defaultNet
+    ports:
+      - "3000:3000"
+    volumes:
+      - /home/docker/JS-File-Shear-Server/backend/public/ftp:/app/public/ftp
+
+      
+    

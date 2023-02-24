@@ -1,13 +1,18 @@
-FROM node:lts-alpine3.17
+FROM node:lts-alpine3.17 as build
 WORKDIR /app
-EXPOSE 5173
 
-COPY package.json ./
-COPY package-lock.json ./
+COPY package*.json ./
+COPY . .
 RUN npm install
-
+RUN npm audit fix
 RUN npm run build
 
-COPY ./build/ ./
+FROM node:lts-alpine3.17 as run
+WORKDIR /app
 
-CMD ["node", "build/index.js"]
+COPY --from=build /app/package.json ./package.json
+COPY --from=build /app/build ./build
+RUN npm install --production
+
+EXPOSE 5173
+CMD ["npm", "run", "start"]
