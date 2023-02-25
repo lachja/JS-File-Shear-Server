@@ -4,9 +4,10 @@
 	import ItemUploadCard from "./ItemUploadCard.svelte";
 	import Loading from "./Loading.svelte";
 
-    const url = "File-Shear-Backend:3000/getFiles"
+    const url = "h3002731.stratoserver.net:3000/getFiles"
 
     let fileNames: any[] = [];
+    let tempUrl: string
 
     async function getData(): Promise<string[]> {
         try {
@@ -24,7 +25,9 @@
     });
 
     async function testConnetion(){
-        console.log(await fetch(url));
+        const response = await fetch(tempUrl)
+        console.log(response);
+        console.log(response.json);
         
     }
 
@@ -43,9 +46,10 @@
         {/each}
     </div>
 
-    <button on:click={testConnetion}>test connection</button>
+    <button on:click={() => testConnetion()}>test connection</button>
+    url eingabe
+    <input bind:value={tempUrl}>
 
-    das ist ein test 
     {/await}
 
 <style>

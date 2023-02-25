@@ -1,6 +1,6 @@
 <script lang="ts">
 
-  let url = 'File-Shear-Backend:3000/upload'
+  let url = 'h3002731.stratoserver.net:3000/upload'
   let  avatar, fileinput;
   let dataAsSteam : ReadableStream;
 	
