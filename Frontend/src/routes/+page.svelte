@@ -4,9 +4,10 @@
 	import ItemUploadCard from "./ItemUploadCard.svelte";
 	import Loading from "./Loading.svelte";
 
-    const url = "h3002731.stratoserver.net:3000/getFiles"
+    const url = "http://h3002731.stratoserver.net:3000/getFiles"
 
     let fileNames: any[] = [];
+    
     let tempUrl: string
 
     async function getData(): Promise<string[]> {
@@ -24,15 +25,7 @@
         fileNames = await getData();
     });
 
-    async function testConnetion(){
-        const response = await fetch(tempUrl)
-        console.log(response);
-        console.log(response.json);
-        
-    }
-
 </script>
-
 
     {#await getData()}
     <div class="loading">
@@ -45,11 +38,6 @@
             <Item {fileName}></Item>
         {/each}
     </div>
-
-    <button on:click={() => testConnetion()}>test connection</button>
-    url eingabe
-    <input bind:value={tempUrl}>
-
     {/await}
 
 <style>
