@@ -32,11 +32,6 @@
 
 
     {#await getData()}
-
-    <button on:click={testConnetion}>test connection</button>
-
-    das ist ein test 
-
     <div class="loading">
             <Loading></Loading>
     </div> 
@@ -47,6 +42,10 @@
             <Item {fileName}></Item>
         {/each}
     </div>
+
+    <button on:click={testConnetion}>test connection</button>
+
+    das ist ein test 
     {/await}
 
 <style>
