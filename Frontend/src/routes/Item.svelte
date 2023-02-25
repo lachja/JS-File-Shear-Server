@@ -41,7 +41,7 @@ async function deleteFile(): Promise<void> {
 }
 
 async function downloadFile(){
-    let response = await fetch(`http://localhost:3000/getFile/${fileName}`);
+    let response = await fetch(`File-Shear-Backend:3000/getFile/${fileName}`);
     let data = await response.blob();
 
     let a = document.createElement("a");

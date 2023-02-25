@@ -4,7 +4,7 @@
 	import ItemUploadCard from "./ItemUploadCard.svelte";
 	import Loading from "./Loading.svelte";
 
-    const url = "http://File-Shear-Backend:3000/getFiles"
+    const url = "File-Shear-Backend:3000/getFiles"
 
     let fileNames: any[] = [];
 
@@ -23,10 +23,20 @@
         fileNames = await getData();
     });
 
+    async function testConnetion(){
+        console.log(await fetch(url));
+        
+    }
+
 </script>
 
 
     {#await getData()}
+
+    <button on:click={testConnetion}>test connection</button>
+
+    das ist ein test 
+
     <div class="loading">
             <Loading></Loading>
     </div> 

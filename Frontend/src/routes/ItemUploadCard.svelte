@@ -1,6 +1,6 @@
 <script lang="ts">
 
-  let url = 'http://localhost:3000/upload'
+  let url = 'File-Shear-Backend:3000/upload'
   let  avatar, fileinput;
   let dataAsSteam : ReadableStream;
 	
