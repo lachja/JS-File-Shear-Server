@@ -3,7 +3,7 @@
 
 export let fileName: string
 let dataType = getDataType()
-const url = "h3002731.stratoserver.net:3000/"
+const url = "http://h3002731.stratoserver.net:3000/"
 
 enum FileExtensions {
   PNG = ".png",
@@ -41,7 +41,7 @@ async function deleteFile(): Promise<void> {
 }
 
 async function downloadFile(){
-    let response = await fetch(`h3002731.stratoserver.net:3000/getFile/${fileName}`);
+    let response = await fetch(`http://h3002731.stratoserver.net:3000/getFile/${fileName}`);
     let data = await response.blob();
 
     let a = document.createElement("a");
