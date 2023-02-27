@@ -32,16 +32,23 @@
             <Loading></Loading>
     </div> 
     {:then}
-    <div class="content">
-        <ItemUploadCard></ItemUploadCard>
-        {#each fileNames as fileName}
-            <Item {fileName}></Item>
-        {/each}
+    <div class="center-container">
+        <div class="content">
+            <ItemUploadCard></ItemUploadCard>
+            {#each fileNames as fileName}
+                <Item {fileName}></Item>
+            {/each}
+        </div>
     </div>
     {/await}
 
 <style>
 
+.center-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .content{
     display: flex ;

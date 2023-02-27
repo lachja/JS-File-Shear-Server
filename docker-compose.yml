@@ -15,7 +15,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - /home/docker/volumes/JS-File-Shear-Server/backend/public/ftp:/app/public/ftp
+      - ./volume/app/public/ftp:/app/public/ftp
 
       
     
