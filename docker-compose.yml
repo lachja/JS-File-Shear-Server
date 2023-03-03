@@ -15,7 +15,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./volume/app/public/ftp:/app/public/ftp
+      - ./Backend/volume/app/public/ftp:/app/public/ftp
 
       
     
