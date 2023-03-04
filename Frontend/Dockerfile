@@ -12,6 +12,8 @@ WORKDIR /app
 
 COPY --from=build /app/package.json ./package.json
 COPY --from=build /app/build ./build
+COPY --from=build /app/src/icons ./src/icons
+
 RUN npm install --production
 
 EXPOSE 5173
