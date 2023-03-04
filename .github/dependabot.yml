@@ -6,12 +6,12 @@ updates:
       interval: "daily"
     open-pull-requests-limit: 10
     reviewers:
-      - "lachja"
-    milestone: 1
+      - "Sniphs98"
 
   - package-ecosystem: "npm"
     directory: "/Frontend/"
     schedule:
       interval: "daily"
     open-pull-requests-limit: 10
-    
+    reviewers:
+      - "Sniphs98"
