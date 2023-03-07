@@ -1,27 +1,23 @@
 <script lang="ts">
 
-  let url = 'http://h3002731.stratoserver.net:3000/upload'
+  import * as fs from 'fs/promises';
+
+  //let url = 'http://h3002731.stratoserver.net:3000/upload'
+  const url = "http://localhost:3000/upload"
   let  avatar, fileinput;
   let dataAsSteam : ReadableStream;
 	
   const form = document.querySelector('form');
-	const onFileSelected =(e)=>{
 
-    console.log(e.target.files[0]);
-    
-
-    let image = e.target.files[0];
-    let dataAsSteam = new ReadableStream(e)
-    
-  }
 
   async function upload() {
-    
+  
     const selectedFile = document.getElementById('input').files[0];    
     const fileName = selectedFile.name;
+    
+    console.log(selectedFile);    
 
     let header = new Headers();
-    header.append('Content-Type','application/octet-stream')
     header.append('Content-Name', fileName)
     let req = new Request(url,{
       method: 'POST',
@@ -29,7 +25,7 @@
       body: selectedFile
     });
 
-    fetch(req)
+    await fetch(req)
     location.reload();
   }
 

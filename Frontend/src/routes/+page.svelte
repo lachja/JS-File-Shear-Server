@@ -4,7 +4,8 @@
 	import ItemUploadCard from "./ItemUploadCard.svelte";
 	import Loading from "./Loading.svelte";
 
-    const url = "http://h3002731.stratoserver.net:3000/getFiles"
+    const url = "http://localhost:3000/getFiles"
+    //const url = "http://h3002731.stratoserver.net:3000/getFiles" 
 
     let fileNames: any[] = [];
     

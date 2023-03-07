@@ -12,6 +12,7 @@ const bodyParser = require('body-parser');
 const app = express()
 const numberOfCpuCors = os.cpus().length
 
+const port = 3000
 
 app.set('view engine', 'ejs')
 app.use(
@@ -34,10 +35,10 @@ app.get("/getFile/:filename", (req, res) => {
     
     const stream = fs.createReadStream(file);
     stream.on('data', chunk => {
-      res.write(chunk);
+        res.write(chunk);
     });
     stream.on('end', () => {
-      res.end();
+        res.end();
     });
 });
 
@@ -57,11 +58,11 @@ app.delete('/delete/:fileName', (req, res) => {
     const fileName = req.params.fileName;
     const filePath = path.join(__dirname, "public/ftp", fileName);
     fs.unlink(filePath, (err) => {
-      if (err) {
+        if (err) {
         res.status(500).send({ message: "Fehler beim Löschen der Datei" });
-      } else {
+        } else {
         res.send({ message: `Datei ${fileName} erfolgreich gelöscht` });
-      }
+        }
     });
 });
 
@@ -89,7 +90,7 @@ app.post('/upload', async(req, res) => {
     stream.on('open', () => {
         console.log('Stream open ...  0.00%');
         req.pipe(stream);
-       });
+    });
 
     stream.on('data', (buffer) => {
         console.log(">>> Data:");
@@ -116,18 +117,11 @@ app.post('/upload', async(req, res) => {
     
 });
 
-function saveFile(file){
-    const fileName = file.name
-    const fileData = file.data
-    const savePath = path.join(__dirname, 'public', 'ftp', fileName)
-    fileData.mv(savePath)
-}
-
 if (cluster.isMaster) {
     for (let i = 0; i < numberOfCpuCors; i++){
         cluster.fork()
     }
 } else {
-    app.listen(3000, () => console.log( process.pid + ' 🚀 on port: 3000 | http://localhost:3000/'))
+    app.listen(port, () => console.log( process.pid + ` 🚀 on port:${port} | http://localhost:${port}/`))
 }
 
