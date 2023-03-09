@@ -4,12 +4,12 @@
 	import ItemUploadCard from "./ItemUploadCard.svelte";
 	import Loading from "./Loading.svelte";
 
-    const url = "http://localhost:3000/getFiles"
+
+    
+    const url = import.meta.env.VITE_BACKEND_URL + "getFiles"
     //const url = "http://h3002731.stratoserver.net:3000/getFiles" 
 
     let fileNames: any[] = [];
-    
-    let tempUrl: string
 
     async function getData(): Promise<string[]> {
         try {

@@ -3,7 +3,7 @@
 
 export let fileName: string
 let dataType = getDataType()
-const url = "http://localhost:3000/"
+const url = import.meta.env.VITE_BACKEND_URL 
 
 enum FileExtensions {
   PNG = ".png",
