@@ -101,7 +101,7 @@ app.post('/upload', async(req, res) => {
         const written = parseInt(stream.bytesWritten);
         const total = parseInt(req.headers['content-length']);
         const pWritten = ((written / total) * 100).toFixed(2);
-        console.log(`Processing  ...  ${pWritten}% done`);
+        console.log(`Processing  ...  ${pWritten}%`);
     });
 
     stream.on('close', () => {

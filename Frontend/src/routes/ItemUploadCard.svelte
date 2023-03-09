@@ -1,22 +1,22 @@
 <script lang="ts">
 
   import * as fs from 'fs/promises';
+	import Loading from './Loading.svelte';
+	import Progressbar from './Progressbar.svelte';
 
   //let url = 'http://h3002731.stratoserver.net:3000/upload'
   const url = "http://localhost:3000/upload"
   let  avatar, fileinput;
   let dataAsSteam : ReadableStream;
+  let loading = false;
 	
   const form = document.querySelector('form');
 
-
   async function upload() {
   
-    const selectedFile = document.getElementById('input').files[0];    
+    const selectedFile = document.getElementById('input').files[0];   
     const fileName = selectedFile.name;
     
-    console.log(selectedFile);    
-
     let header = new Headers();
     header.append('Content-Name', fileName)
     let req = new Request(url,{
@@ -24,29 +24,29 @@
       headers: header,
       body: selectedFile
     });
-
+    loading = true;
     await fetch(req)
-    location.reload();
+      .then(res => {console.log(res);
+      })
+    loading = false;
+    //location.reload();
   }
 
 </script>
   
   <div class="container">
-      <!--
-        <img class="upload" src="https://static.thenounproject.com/png/625182-200.png" alt="" on:click={()=>{fileinput.click();}} />
-        <div class="chan" on:click={()=>{fileinput.click();}}>Choose Image</div>    
-        <input style="display:none" type="file" on:change={(e)=>onFileSelected(e)} bind:this={fileinput} >
-        
-      -->
-
+    {#if loading}
+      <Loading></Loading>
+    {:else}
+      <Progressbar></Progressbar>
       <input type="file" id="input" multiple />
-      <button on:click={upload}>Upload</button>
-      
+      <button id="uploadButton" on:click={upload}>Upload</button>
+    {/if}
   </div>
   
 <style lang="scss">
   
-  @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;900&display=swap');
+  //@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;900&display=swap');
   
   
   img {
