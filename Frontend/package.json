@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
-		"run": "PUBLIC_BACKEND_URL=http://localhost:3000/ mocha --reporter spec",
+		"dev-local": "PUBLIC_BACKEND_URL=http://localhost:3000/ vite dev",
 		"build": "vite build",
 		"start": "export PORT=5173 && node ./build",
 		"preview": "vite preview",
