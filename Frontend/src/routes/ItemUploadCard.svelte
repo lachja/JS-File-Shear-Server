@@ -1,11 +1,13 @@
 <script lang="ts">
+	import { PUBLIC_BACKEND_URL } from '$env/static/public';
+
 
   import * as fs from 'fs/promises';
 	import Loading from './Loading.svelte';
 	import Progressbar from './Progressbar.svelte';
 
   //let url = 'http://h3002731.stratoserver.net:3000/upload'
-  const url = "http://localhost:3000/upload"
+  const url = PUBLIC_BACKEND_URL + "upload"
   let  avatar, fileinput;
   let dataAsSteam : ReadableStream;
   let loading = false;

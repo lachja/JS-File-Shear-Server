@@ -1,9 +1,12 @@
 <script lang="ts">
+	import { PUBLIC_BACKEND_URL } from "$env/static/public";
+
+
 
 
 export let fileName: string
 let dataType = getDataType()
-const url = import.meta.env.VITE_BACKEND_URL 
+const url = PUBLIC_BACKEND_URL
 
 enum FileExtensions {
   PNG = ".png",

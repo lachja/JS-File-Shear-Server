@@ -1,12 +1,13 @@
 <script lang="ts">
+	import { PUBLIC_BACKEND_URL } from "$env/static/public";
 	import { onMount } from "svelte";
 	import Item from "./Item.svelte";
 	import ItemUploadCard from "./ItemUploadCard.svelte";
 	import Loading from "./Loading.svelte";
 
-
     
-    const url = import.meta.env.VITE_BACKEND_URL + "getFiles"
+
+    const url = PUBLIC_BACKEND_URL + "getFiles"
     //const url = "http://h3002731.stratoserver.net:3000/getFiles" 
 
     let fileNames: any[] = [];
