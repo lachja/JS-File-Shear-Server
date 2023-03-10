@@ -4,9 +4,7 @@
 	import Item from "./Item.svelte";
 	import ItemUploadCard from "./ItemUploadCard.svelte";
 	import Loading from "./Loading.svelte";
-
     
-
     const url = PUBLIC_BACKEND_URL + "getFiles"
     //const url = "http://h3002731.stratoserver.net:3000/getFiles" 
 
@@ -46,10 +44,19 @@
 
 <style>
 
+@media(max-width: 600px)
+{
+        .center-container{
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+    }
+}
+
 .center-container{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
 
 .content{
