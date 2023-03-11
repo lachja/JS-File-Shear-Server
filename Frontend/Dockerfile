@@ -9,7 +9,11 @@ RUN npm run build
 FROM node:lts-alpine3.17 as run
 WORKDIR /app
 
+<<<<<<< HEAD
 COPY --from=build /app/.env ./env
+=======
+COPY --from=build /app/.env ./.env
+>>>>>>> docker with env
 COPY --from=build /app/package.json ./package.json
 COPY --from=build /app/build ./build
 COPY --from=build /app/src/icons ./src/icons

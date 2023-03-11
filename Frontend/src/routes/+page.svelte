@@ -4,7 +4,11 @@
 	import Item from "./Item.svelte";
 	import ItemUploadCard from "./ItemUploadCard.svelte";
 	import Loading from "./Loading.svelte";
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> docker with env
     const url = PUBLIC_BACKEND_URL + "getFiles"
 
     let fileNames: any[] = [];
@@ -24,8 +28,17 @@
         fileNames = await getData();
     });
 
-</script>
+    var testData:any
 
+    async function test() {
+        testData = fetch(url + "getFiles")
+        console.log(testData);
+        
+    }
+
+</script>
+    {testData}
+    <button on:click={test}>test</button>
     {#await getData()}
     <div class="loading">
             <Loading></Loading>
