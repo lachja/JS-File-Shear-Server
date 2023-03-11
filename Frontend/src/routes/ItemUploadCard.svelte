@@ -1,22 +1,14 @@
 <script lang="ts">
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
-
-
-  import * as fs from 'fs/promises';
 	import Loading from './Loading.svelte';
-	import Progressbar from './Progressbar.svelte';
 
-  //let url = 'http://h3002731.stratoserver.net:3000/upload'
   const url = PUBLIC_BACKEND_URL + "upload"
-  let  avatar, fileinput;
-  let dataAsSteam : ReadableStream;
   let loading = false;
-	
-  const form = document.querySelector('form');
+
+  let file:any;
 
   async function upload() {
-  
-    const selectedFile = document.getElementById('input').files[0];   
+    const selectedFile = file
     const fileName = selectedFile.name;
     
     let header = new Headers();
@@ -31,31 +23,58 @@
       .then(res => {console.log(res);
       })
     loading = false;
-    //location.reload();
+    location.reload();
+  }
+
+
+
+  function openFileDialog(){
+    let input = document.createElement('input');
+    input.id = 'input';
+    input.type = 'file';
+    input.onchange = ()  => {
+        let files =   Array.from(input.files);
+        file = files[0];
+      };
+    input.click();
   }
 
 </script>
-  
   <div class="container">
     {#if loading}
       <Loading></Loading>
     {:else}
-      <Progressbar></Progressbar>
-      <input type="file" id="input" multiple />
-      <button id="uploadButton" on:click={upload}>Upload</button>
+      <div on:click={openFileDialog} class="card-container" id="card-container">
+        <img id="upload-image" src="src/icons/upload-image.png">
+        <label>Upload files</label>
+      </div>
+      <button on:click={upload} class="uploadButton">Upload</button>
     {/if}
   </div>
   
 <style lang="scss">
-  
-  //@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;900&display=swap');
-  
-  
   img {
-    width: 50%;
+    width: 100%;
     height: auto;
   }
-  
+
+  .card-container{
+    border-radius: 20px;
+    border-style: dashed;
+    border-color: #a1a1a1;
+    width: 90%;
+    height: 70%;
+
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: inset 5px 5px 10px #d9d9d9,
+                inset -5px -5px 10px #ffffff;
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 1rem;
+  }
+
   .container  {
     display: flex;
     justify-content: center;
@@ -73,6 +92,17 @@
   
   .container:hover {
     box-shadow: 0 0 20px 8px #a1a1a1;
+  }
+
+  .uploadButton{
+    margin: 10px;
+    background:    #3e6ef2;
+    border-radius: 11px;
+    padding:       20px 45px;
+    color:         #ffffff;
+    display:       inline-block;
+    font:          normal bold 26px/1 "Open Sans", sans-serif;
+    text-align:    center;
   }
   
 </style>

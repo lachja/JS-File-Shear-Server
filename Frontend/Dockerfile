@@ -1,9 +1,7 @@
 FROM node:lts-alpine3.17 as build
 WORKDIR /app
-COPY .env .env
 COPY package*.json ./
 COPY . .
-RUN cat .env
 RUN npm install
 RUN npm audit fix
 RUN npm run build

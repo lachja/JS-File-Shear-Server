@@ -6,7 +6,6 @@
 	import Loading from "./Loading.svelte";
     
     const url = PUBLIC_BACKEND_URL + "getFiles"
-    //const url = "http://h3002731.stratoserver.net:3000/getFiles" 
 
     let fileNames: any[] = [];
 
@@ -46,7 +45,7 @@
 
 @media(max-width: 600px)
 {
-        .center-container{
+    .center-container{
         margin: auto;
         width: 50%;
         padding: 10px;
