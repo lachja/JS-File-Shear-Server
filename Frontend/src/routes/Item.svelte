@@ -14,7 +14,6 @@ enum FileExtensions {
 
 function getDataType():string {
   let extension = fileName.substring(fileName.lastIndexOf("."));
-
   switch (extension) {
     case FileExtensions.PNG:
       return "png"
@@ -31,11 +30,11 @@ function getDataType():string {
 
 async function deleteFile(): Promise<void> {  
     const response = await fetch(url + "delete/" + fileName, {
-        method: 'DELETE',
+      method: 'DELETE',
     });
     
     if (!response.ok) {
-        throw new Error(`Could not delete file ${fileName}`);
+      throw new Error(`Could not delete file ${fileName}`);
     }
     location.reload();
 }
