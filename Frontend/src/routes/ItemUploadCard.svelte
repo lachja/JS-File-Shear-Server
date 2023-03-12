@@ -128,6 +128,7 @@
 
   .button-container{
     display: flex;
+    margin-bottom: 1rem;
   }
 
   .uploadButton{
