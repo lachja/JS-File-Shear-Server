@@ -72,7 +72,8 @@
   {#if loading}
     <Loading></Loading>
   {:else}
-    <div on:keydown={openFileDialog} on:click={openFileDialog} class="card-container" id="card-container">
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div on:click={openFileDialog} class="card-container" id="card-container">
         <input type="image" alt="upload image" id="upload-image" src="src/icons/upload-image.png">
       {fileName}
     </div>
