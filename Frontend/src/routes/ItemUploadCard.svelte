@@ -72,7 +72,7 @@
   {#if loading}
     <Loading></Loading>
   {:else}
-    <div on:keydown={openFileDialog} class="card-container" id="card-container">
+    <div on:keydown={openFileDialog} on:click={openFileDialog} class="card-container" id="card-container">
         <input type="image" alt="upload image" id="upload-image" src="src/icons/upload-image.png">
       {fileName}
     </div>

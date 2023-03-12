@@ -57,7 +57,8 @@ async function downloadFile(){
 <div class="container">
   <input type="image" class="image" src="src/icons/{dataType}.png" alt="default icon" on:click={() => downloadFile()} > 
   <h3>{fileName}</h3>
-  <svg id="close" on:keydown={()=>deleteFile()} viewBox="0 0 12 12">
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <svg id="close" on:click={()=>deleteFile()} viewBox="0 0 12 12">
     <circle cx=6 cy=6 r=6 />
     <line x1=3 y1=3 x2=9 y2=9 />
     <line x1=9 y1=3 x2=3 y2=9 />
