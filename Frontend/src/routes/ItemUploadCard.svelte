@@ -72,9 +72,9 @@
   {#if loading}
     <Loading></Loading>
   {:else}
-    <div on:click={openFileDialog} class="card-container" id="card-container">
-      <img id="upload-image" src="src/icons/upload-image.png">
-      <label>{fileName}</label>
+    <div on:keydown={openFileDialog} class="card-container" id="card-container">
+        <input type="image" alt="upload image" id="upload-image" src="src/icons/upload-image.png">
+      {fileName}
     </div>
     <div class="button-container">
       <button disabled on:click={upload} class="uploadButton" id="uploadButton">Upload</button>
@@ -84,7 +84,7 @@
 </div>
   
 <style lang="scss">
-  img {
+  #upload-image {
     width: 100%;
     height: auto;
   }

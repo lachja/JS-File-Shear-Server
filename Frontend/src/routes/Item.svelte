@@ -55,9 +55,9 @@ async function downloadFile(){
 </script>
 
 <div class="container">
-  <img src="src/icons/{dataType}.png" alt="default icon" on:click={() => downloadFile()} > 
+  <input type="image" class="image" src="src/icons/{dataType}.png" alt="default icon" on:click={() => downloadFile()} > 
   <h3>{fileName}</h3>
-  <svg id="close" on:click={()=>deleteFile()} viewBox="0 0 12 12">
+  <svg id="close" on:keydown={()=>deleteFile()} viewBox="0 0 12 12">
     <circle cx=6 cy=6 r=6 />
     <line x1=3 y1=3 x2=9 y2=9 />
     <line x1=9 y1=3 x2=3 y2=9 />
@@ -70,7 +70,7 @@ async function downloadFile(){
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;900&display=swap');
 
 
-img {
+.image {
   width: 80%;
   height: auto;
 }
