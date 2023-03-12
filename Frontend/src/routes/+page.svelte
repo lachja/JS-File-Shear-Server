@@ -52,6 +52,10 @@
     }
 }
 
+body{
+    background-image:( '/src/svg/background.svg' );				
+}
+
 .center-container{
     display: flex;
     align-items: center;
