@@ -88,11 +88,11 @@ img {
   overflow: hidden;
   border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 0 20px 8px #d0d0d0;
+  box-shadow: 0 0 20px 8px #585858;
 }
 
 .container:hover {
-  box-shadow: 0 0 20px 8px #a1a1a1;
+  box-shadow: 0 0 20px 8px rgb(61, 61, 61);
 }
 
 .container:active {

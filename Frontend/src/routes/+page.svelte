@@ -4,11 +4,7 @@
 	import Item from "./Item.svelte";
 	import ItemUploadCard from "./ItemUploadCard.svelte";
 	import Loading from "./Loading.svelte";
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> docker with env
     const url = PUBLIC_BACKEND_URL + "getFiles"
 
     let fileNames: any[] = [];

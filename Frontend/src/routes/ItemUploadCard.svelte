@@ -5,7 +5,7 @@
   const url = PUBLIC_BACKEND_URL + "upload"
   let loading = false;
 
-  let file:any;
+  let file:any = {};
 
   async function upload() {
     const selectedFile = file
@@ -26,8 +26,6 @@
     location.reload();
   }
 
-
-
   function openFileDialog(){
     let input = document.createElement('input');
     input.id = 'input';
@@ -35,11 +33,35 @@
     input.onchange = ()  => {
         let files =   Array.from(input.files);
         file = files[0];
+        fileProxy.file = files[0];
       };
     input.click();
   }
 
+  var fileProxy = new Proxy(file, {
+    set: function (target, key, value) {        
+        console.log(isEmpty(value));
+        
+        if(isEmpty(value)){
+          document.getElementById("uploadButton").disabled = true;
+        }else{
+          document.getElementById("uploadButton").disabled = false;
+        }
+        
+        target[key] = value;
+        return true;
+    }
+  });
+
+  function isEmpty(obj:any) {
+    if(Object.keys(obj).length === 0 && Object.getPrototypeOf(obj) === Object.prototype){
+      return true
+    } 
+    return false
+  }
+
 </script>
+
   <div class="container">
     {#if loading}
       <Loading></Loading>
@@ -48,7 +70,7 @@
         <img id="upload-image" src="src/icons/upload-image.png">
         <label>Upload files</label>
       </div>
-      <button on:click={upload} class="uploadButton">Upload</button>
+      <button disabled on:click={upload} class="uploadButton" id="uploadButton">Upload</button>
     {/if}
   </div>
   
@@ -87,11 +109,11 @@
     overflow: hidden;
     border-radius: 20px;
     cursor: pointer;
-    box-shadow: 0 0 20px 8px #d0d0d0;
+    box-shadow: 0 0 20px 8px #585858;
   }
   
   .container:hover {
-    box-shadow: 0 0 20px 8px #a1a1a1;
+    box-shadow: 0 0 20px 8px rgb(61, 61, 61);
   }
 
   .uploadButton{
@@ -103,6 +125,23 @@
     display:       inline-block;
     font:          normal bold 26px/1 "Open Sans", sans-serif;
     text-align:    center;
+    border:        none;
+    box-shadow:    0 5px #666;
+  }
+
+  .uploadButton:hover{
+    background:    #245bf0;
+  }
+
+  .uploadButton:active{
+    transform: translateY(3px);
+    box-shadow:    0 2px #666;
+  }
+
+  .uploadButton:disabled{
+    background:    #7f95db;
+    box-shadow: 0 2px #666;
+    transform: translateY(3px);
   }
   
 </style>
