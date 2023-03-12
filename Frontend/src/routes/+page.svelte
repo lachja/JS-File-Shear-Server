@@ -24,13 +24,6 @@
         fileNames = await getData();
     });
 
-    var testData:any
-
-    async function test() {
-        testData = fetch(url + "getFiles")
-        console.log(testData);
-        
-    }
 
 </script>
     {#await getData()}
@@ -73,10 +66,14 @@
 }
 
 .loading{
-    display: grid;
-    height: 100vh;
-    width: 100vw;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 

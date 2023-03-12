@@ -8,6 +8,7 @@ const url = PUBLIC_BACKEND_URL
 enum FileExtensions {
   PNG = ".png",
   JPG = ".jpg",
+  JPEG = ".jpeg",
   PDF = ".pdf",
   TXT = ".txt"
 }
@@ -18,6 +19,8 @@ function getDataType():string {
     case FileExtensions.PNG:
       return "png"
     case FileExtensions.JPG:
+      return "jpg"
+    case FileExtensions.JPEG:
       return "jpg"
     case FileExtensions.PDF:
       return "pdf"
