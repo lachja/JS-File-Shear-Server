@@ -1,3 +1,6 @@
+Backend/public/ftp/*
+Backend/volume/*
+
 # Logs
 logs
 *.log
