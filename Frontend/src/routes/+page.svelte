@@ -33,8 +33,6 @@
     }
 
 </script>
-    {testData}
-    <button on:click={test}>test</button>
     {#await getData()}
     <div class="loading">
             <Loading></Loading>
