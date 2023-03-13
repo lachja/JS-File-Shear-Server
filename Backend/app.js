@@ -5,7 +5,7 @@ const copression = require('compression')
 const cluster = require('cluster')
 const os = require('os')
 const path = require('path')
-var cors = require('cors')
+const cors = require('cors')
 const fs = require('fs');
 const bodyParser = require('body-parser');
 
@@ -22,10 +22,12 @@ app.use(
     cors(),
     bodyParser.json()
 )
+
+/*
 app.get('/', async (req, res, next) => {
     res.render('index')
 })
-
+*/
 
 app.get("/getFile/:filename", (req, res) => {
 
@@ -52,7 +54,9 @@ app.get('/getFiles', async (req, res, next) => {
     });
 })
 
+/*
 app.use('/ftp', express.static('public/ftp'), serverIndex('public/ftp', {icons: true}))
+*/
 
 app.delete('/delete/:fileName', (req, res) => {
     const fileName = req.params.fileName;

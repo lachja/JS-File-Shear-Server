@@ -47,7 +47,7 @@
 {
     .center-container{
         margin: auto;
-        width: 50%;
+        width: 61%;
         padding: 10px;
     }
 }
